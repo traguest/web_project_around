@@ -1,0 +1,79 @@
+.landscapes {
+  display: flex;
+
+  justify-content: center;
+}
+
+.landscapes__content {
+  margin-top: 46px;
+  max-width: 890px;
+  max-height: 943px;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 17px;
+  flex-grow: 1;
+  flex-shrink: 2;
+}
+
+.landscapes__element {
+  width: 282px;
+  height: 382px;
+
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5%;
+  overflow: hidden;
+}
+
+.landscapes__image {
+  height: 282px;
+  width: 100%;
+  margin-top: -30px;
+}
+
+.landscapes__central {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 246px;
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.landscapes__text {
+  display: block;
+  font-size: 24px;
+  font-family: "Exterior";
+}
+
+.landscapes__love {
+  max-height: 21px;
+  stroke: rgb(0, 0, 0);
+  fill: rgb(255, 255, 255);
+  stroke-width: 1;
+}
+
+.landscapes__love:hover {
+  stroke: rgb(117, 114, 114);
+
+  cursor: pointer;
+}
+
+.landscapes__love:active {
+  fill: black;
+  stroke: white;
+}
+
+@media screen and (min-width: 320px) and (max-width: 881px) {
+  .landscapes__content {
+    max-height: 2386px;
+
+    justify-content: space-evenly;
+  }
+}

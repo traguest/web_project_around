@@ -1,4 +1,19 @@
+.header {
+  display: flex;
 
+  align-items: center;
 
+  justify-content: center;
+}
 
+.header__content {
+  padding: 20px;
+  max-width: 880px;
+  flex-shrink: 2;
+  flex-grow: 1;
+  border-bottom: 1px solid gray;
 
+  display: flex;
+
+  align-items: center;
+}
