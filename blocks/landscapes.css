@@ -35,6 +35,7 @@
   height: 282px;
   width: 100%;
   margin-top: -30px;
+  cursor: pointer;
 }
 
 .landscapes__central {

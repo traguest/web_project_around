@@ -27,8 +27,9 @@
   justify-content: space-evenly;
   align-items: center;
   position: relative;
-  top: 250px;
-  left: 35%;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .popup__text {
@@ -69,6 +70,7 @@
     display: flex;
 
     align-items: center;
+    top: 300px;
     left: 50%;
     transform: translateX(-50%);
   }
