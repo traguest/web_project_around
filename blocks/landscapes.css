@@ -50,6 +50,9 @@
   display: block;
   font-size: 24px;
   font-family: "Exterior";
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .landscapes__love {
