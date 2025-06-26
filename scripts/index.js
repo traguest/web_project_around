@@ -11,7 +11,53 @@ document.addEventListener("DOMContentLoaded", () => {
   let boton = document.querySelector(".popup");
 
   let formElement = document.querySelector(".popup__save");
+  /* let color = document.querySelector(".landscapes__element");
+  let valores = [
+    "landscapes__element-color1",
+    "landscapes__element-color2",
+    "landscapes__element-color3",
+    "landscapes__element-color4",
+    "landscapes__element-color5",
+    "landscapes__element-color6",
+  ];
+/
+  function cambioColor(event) {
+    let i;
+    let clase = event.target;
+    for (i = 0; i < valores.length; i++) {
+      if (clase === valores[i]) {
+        clase = valores[i];
+      }
+    }
+    console.log(clase);
+    let acom = "#";
+    let posicion = 0;
+    let hexa = [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "A",
+      "B",
+      "C",
+      "E",
+      "F",
+    ];
 
+    for (let i = 0; i < 6; i++) {
+      posicion = Math.floor(Math.random() * (hexa.length - 0) + 0);
+      acom += hexa[posicion];
+    }
+    console.log(acom);
+    clase.setAttribute("style", "background-color:" + acom);
+  }
+*/
   edit.classList.add("description__edit");
   function abrir(evt) {
     evt.preventDefault();
@@ -37,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     profesion.textContent = jobInput.value;
     boton.setAttribute("style", "display:none");
   }
-
+  //color.addEventListener("mouseover", cambioColor);
   edit.addEventListener("click", abrir);
   cerrar.addEventListener("click", accion);
   formElement.addEventListener("click", handleProfileFormSubmit);

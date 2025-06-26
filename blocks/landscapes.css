@@ -29,6 +29,15 @@
   align-items: center;
   border-radius: 5%;
   overflow: hidden;
+
+  transition-property: background-color;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+}
+
+.landscapes__element:hover {
+  color: white;
+  background-color: blueviolet;
 }
 
 .landscapes__image {
