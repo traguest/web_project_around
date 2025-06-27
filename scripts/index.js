@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let cerrar = document.querySelector(".popup__close");
   let boton = document.querySelector(".popup");
-
+  let linea = document.querySelector(".header__content ");
   let formElement = document.querySelector(".popup__save");
   /* let color = document.querySelector(".landscapes__element");
   let valores = [
@@ -20,18 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
     "landscapes__element-color5",
     "landscapes__element-color6",
   ];
-/
-  function cambioColor(event) {
-    let i;
+*/
+  function cambioColor() {
+    /* let i;
     let clase = event.target;
     for (i = 0; i < valores.length; i++) {
       if (clase === valores[i]) {
         clase = valores[i];
       }
     }
+
     console.log(clase);
-    let acom = "#";
-    let posicion = 0;
+    */
+
     let hexa = [
       "0",
       "1",
@@ -50,14 +51,24 @@ document.addEventListener("DOMContentLoaded", () => {
       "F",
     ];
 
-    for (let i = 0; i < 6; i++) {
-      posicion = Math.floor(Math.random() * (hexa.length - 0) + 0);
-      acom += hexa[posicion];
-    }
-    console.log(acom);
-    clase.setAttribute("style", "background-color:" + acom);
+    setInterval(() => {
+      let acom = "#";
+      let posicion = 0;
+      for (let i = 0; i < 6; i++) {
+        posicion = Math.floor(Math.random() * (hexa.length - 0) + 0);
+        acom += hexa[posicion];
+      }
+      console.log(acom);
+      linea.setAttribute(
+        "style",
+        "border-bottom: 1px solid" +
+          acom +
+          ";transition-property:color;transition-duration: 1s;transition-timing-function: ease-in;"
+      );
+    }, 5000);
   }
-*/
+  cambioColor();
+
   edit.classList.add("description__edit");
   function abrir(evt) {
     evt.preventDefault();
