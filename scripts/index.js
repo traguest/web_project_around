@@ -58,13 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
         posicion = Math.floor(Math.random() * (hexa.length - 0) + 0);
         acom += hexa[posicion];
       }
-      console.log(acom);
-      linea.setAttribute(
-        "style",
-        "border-bottom: 1px solid" +
-          acom +
-          ";transition-property:color;transition-duration: 1s;transition-timing-function: ease-in;"
-      );
+
+      linea.setAttribute("style", "border-bottom: 1px solid" + acom);
     }, 5000);
   }
   cambioColor();
