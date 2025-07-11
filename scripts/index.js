@@ -11,58 +11,43 @@ document.addEventListener("DOMContentLoaded", () => {
   let boton = document.querySelector(".popup");
   let linea = document.querySelector(".header__content ");
   let formElement = document.querySelector(".popup__save");
-  /* let color = document.querySelector(".landscapes__element");
-  let valores = [
-    "landscapes__element-color1",
-    "landscapes__element-color2",
-    "landscapes__element-color3",
-    "landscapes__element-color4",
-    "landscapes__element-color5",
-    "landscapes__element-color6",
+  let tarjeta = document.querySelectorAll(".landscapes__element");
+  let texto = document.querySelectorAll(".landscapes__text");
+
+  const initialCards = [
+    {
+      name: "Valle de Yosemite",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
+    },
+    {
+      name: "Lago Louise",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
+    },
+    {
+      name: "Montañas Calvas",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
+    },
+    {
+      name: "Latemar",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
+    },
+    {
+      name: "Parque Nacional de la Vanoise",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
+    },
+    {
+      name: "Lago di Braies",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+    },
   ];
-*/
-  function cambioColor() {
-    /* let i;
-    let clase = event.target;
-    for (i = 0; i < valores.length; i++) {
-      if (clase === valores[i]) {
-        clase = valores[i];
-      }
-    }
 
-    console.log(clase);
-    */
-
-    let hexa = [
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "A",
-      "B",
-      "C",
-      "E",
-      "F",
-    ];
-
-    setInterval(() => {
-      let acom = "#";
-      let posicion = 0;
-      for (let i = 0; i < 6; i++) {
-        posicion = Math.floor(Math.random() * (hexa.length - 0) + 0);
-        acom += hexa[posicion];
-      }
-
-      linea.setAttribute("style", "border-bottom: 1px solid" + acom);
-    }, 5000);
+  for (let i = 0; i < tarjeta.length; i++) {
+    let imagen = document.createElement("img");
+    imagen.setAttribute("src", initialCards[i].link);
+    imagen.classList.add("landscapes__image");
+    texto[i].textContent = initialCards[i].name;
+    tarjeta[i].append(imagen);
   }
-  cambioColor();
 
   edit.classList.add("description__edit");
   function abrir(evt) {
