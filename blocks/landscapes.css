@@ -24,7 +24,7 @@
   background-color: white;
 
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 5%;
@@ -33,6 +33,7 @@
   transition-property: background-color;
   transition-duration: 1s;
   transition-timing-function: ease-in;
+  position: relative;
 }
 
 .landscapes__element:hover {
@@ -45,6 +46,14 @@
   width: 100%;
   margin-top: -30px;
   cursor: pointer;
+}
+
+.landscapes__image-delete {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 18px;
+  right: 15px;
 }
 
 .landscapes__central {
@@ -81,6 +90,7 @@
 .landscapes__love:active {
   fill: black;
   stroke: white;
+  border: 1px solid blue;
 }
 
 @media screen and (min-width: 320px) and (max-width: 881px) {

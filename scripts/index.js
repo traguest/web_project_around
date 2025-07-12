@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let cerrar = document.querySelector(".popup__close");
   let boton = document.querySelector(".popup");
-  let linea = document.querySelector(".header__content ");
+  let linea = document.querySelector(".header__content");
   let formElement = document.querySelector(".popup__save");
-  let tarjeta = document.querySelectorAll(".landscapes__element");
-  let texto = document.querySelectorAll(".landscapes__text");
-
+  let contenedor = document.querySelector(".landscapes__content");
+  let template = document.querySelector("#landscapes-template").content;
+  let tarjeta;
   const initialCards = [
     {
       name: "Valle de Yosemite",
@@ -41,12 +41,30 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  for (let i = 0; i < tarjeta.length; i++) {
-    let imagen = document.createElement("img");
-    imagen.setAttribute("src", initialCards[i].link);
-    imagen.classList.add("landscapes__image");
-    texto[i].textContent = initialCards[i].name;
-    tarjeta[i].append(imagen);
+  for (let i = 0; i < 6; i++) {
+    tarjeta = template.querySelector(".landscapes__element").cloneNode(true);
+
+    let eliminar = document.createElement("img");
+    eliminar.classList.add("landscapes__image-delete");
+    eliminar.setAttribute("src", "images/eliminar.png");
+
+    tarjeta.append(eliminar);
+
+    tarjeta
+      .querySelector(".landscapes__image")
+      .setAttribute("src", "" + initialCards[i].link);
+
+    tarjeta.querySelector(".landscapes__text").textContent =
+      initialCards[i].name;
+
+    tarjeta
+      .querySelector(".landscapes__central")
+      .append(tarjeta.querySelector(".landscapes__text"));
+    tarjeta
+      .querySelector(".landscapes__central")
+      .append(tarjeta.querySelector(".landscapes__love"));
+
+    contenedor.append(tarjeta);
   }
 
   edit.classList.add("description__edit");
