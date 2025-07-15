@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="page/index.css" />
+    <script src="scripts/index.js"></script>
+
+    <meta name="author" content="javp" />
+    <meta name="keywords" content="html,css,javascript" />
+    <meta
+      name="description"
+      content="esto es una practica didactica de tripleten"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="header__content">
+          <img
+            class="header__image"
+            src="images/logo.png"
+            alt="logo de tripleten"
+          />
+        </div>
+      </header>
+
+      <main class="menu">
+        <section class="description">
+          <div class="description__content">
+            <img
+              class="description__photo"
+              src="images/viejo.jpg"
+              alt="foto personal"
+            />
+
+            <div class="description__conteiner">
+              <div class="description__capa">
+                <h1 class="description__text">Jacques Cousteau</h1>
+                <img
+                  class="description__edit"
+                  src="images/editor.png"
+                  alt="editar"
+                />
+              </div>
+
+              <span class="description__span">Explorador</span>
+            </div>
+
+            <button class="description__button">+</button>
+          </div>
+        </section>
+
+        <section class="content">
+          <div class="content__element"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__content">
+          <h3 class="footer__text">&copy; 2025 Jose Antonio V.P.</h3>
+        </div>
+      </footer>
+    </div>
+
+    <div class="modal">
+      <div class="modal__container">
+        <form class="modal__content" action=".">
+          <h3 class="modal__title">Agregar Bloque</h3>
+          <div class="modal__close">X</div>
+          <input type="text" class="modal__text" placeholder="nombre" />
+          <input type="text" class="modal__image" placeholder="link" />
+          <button class="modal__add">guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="add">
+      <div class="add__container">
+        <form class="add" action=".">
+          <h3 class="add__title">Editar valor</h3>
+          <div class="add__close">X</div>
+          <input
+            class="add__text"
+            class="texto"
+            type="text"
+            placeholder="Nombre"
+          />
+          <input class="add__profesion" type="text" placeholder="Profesion" />
+          <button class="add__save">guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <template id="template">
+      <div class="content__target">
+        <img class="content__target-image" src="" alt="" />
+        <div class="content__capa">
+          <p class="content__text"></p>
+          <svg
+            class="content__corazon"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 319.743 319.743"
+            style="enable-background: new 0 0 319.743 319.743"
+            xml:space="preserve"
+          >
+            <g>
+              <g>
+                <path
+                  d="M160.968,301.675c-1.601,0-3.125-0.624-4.275-1.729c-0.252-0.24-26.244-25.388-130.22-129.355l-0.72-0.732 c-0.817-0.805-1.21-1.261-1.598-1.711C8.455,151.174,0,129.683,0,107.228c0-49.158,40.004-89.159,89.159-89.159 c28.076,0,53.89,12.919,70.713,34.975c16.825-22.062,42.646-34.975,70.712-34.975c49.168,0,89.159,40.001,89.159,89.159 c0,24.881-10.063,48-28.343,65.08c0.049,0.006-0.162,0.246-0.402,0.486c-104.621,104.609-125.341,126.72-125.542,126.923 c-1.132,1.214-2.693,1.916-4.335,1.958C161.072,301.675,161.01,301.675,160.968,301.675z"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </template>
+  </body>
+</html>

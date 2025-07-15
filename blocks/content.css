@@ -1,0 +1,115 @@
+
+.content{
+
+display: flex;
+justify-content: center;
+
+}
+
+
+
+
+.content__element{
+
+  margin-top: 46px;
+  max-width: 890px;
+  max-height: 100%;
+
+  display: flex;
+  justify-content: center;
+
+
+  flex-wrap: wrap;
+  gap: 17px;
+  flex-grow: 1;
+  flex-shrink: 2;
+}
+
+.content__target-image{
+width: 100%;
+height: 70%;
+
+}
+
+.content__target{
+ width: 282px;
+  height: 382px;
+border: 1px solid black;
+overflow: hidden;
+
+border-radius: 5%;
+color: rgb(20, 17, 17);
+display: flex;
+flex-direction: column;
+align-items: center;
+
+position: relative;
+background-color: white;
+font-family: "Exterior";
+  transition-property: background-color;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+
+}
+
+.content__target:hover {
+  color: white;
+  background-color: rgb(43, 189, 226);
+}
+
+
+.content__text{
+
+  font-size: 24px;
+
+}
+
+.content__image-delete{
+
+position: absolute;
+
+right:15px;
+top:8px;
+cursor: pointer;
+
+}
+
+
+.content__capa{
+
+  margin-top: 25px;
+  margin-bottom: 25px;
+min-width: 246px;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.content__corazon{
+
+width:20px;
+height: 20px;
+
+fill:white;
+stroke: rgb(0,0,0);
+stroke-width: 8;
+cursor: pointer;
+
+}
+
+.content__corazon:hover{
+
+stroke: gray;
+
+
+}
+
+
+
+
+
+
+
