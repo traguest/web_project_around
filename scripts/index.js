@@ -61,7 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
       .setAttribute("src", "" + initialCards[i].link);
     tarjeta
       .querySelector(".content__target-image")
+
       .addEventListener("click", expandir);
+    tarjeta
+      .querySelector(".content__target-image")
+      .setAttribute("alt", initialCards[i].name);
+
     tarjeta.querySelector(".content__text").textContent = initialCards[i].name;
     tarjeta
       .querySelector(".content__capa")
@@ -82,6 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
     bloque
       .querySelector(".content__target-image")
       .setAttribute("src", "" + imagen.value);
+    bloque
+      .querySelector(".content__target-image")
+      .setAttribute("alt", "" + texto.value);
+
     bloque
       .querySelector(".content__target-image")
       .addEventListener("click", expandir);
@@ -155,6 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
     imagenC = document.createElement("img");
     imagenC.classList.add("creacion__image");
     imagenC.setAttribute("src", src);
+    imagenC.setAttribute("alt", "" + nombrex);
 
     contenedor.append(imagenC);
 
@@ -169,12 +179,8 @@ document.addEventListener("DOMContentLoaded", () => {
     parrafo2.textContent = "" + nombrex;
     contenedor.append(parrafo2);
     pagina.append(elemento);
-    console.log(parrafo2.textContent);
-  }
 
-  function accion(e) {
-    e.preventDefault();
-    alert("Hola mundo");
+    console.log(parrafo2.textContent);
   }
 
   function abrir() {
