@@ -74,4 +74,9 @@
     top: 270px;
     right: -3px;
   }
+
+  .creacion__frase {
+    bottom: -505px;
+    left: 1px;
+  }
 }
