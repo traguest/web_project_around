@@ -1,3 +1,6 @@
+import { enableValidation } from "./validate.js";
+import { cerrarEscape } from "./closeKey.js";
+import { superposicion } from "./closeExt.js";
 document.addEventListener("DOMContentLoaded", () => {
   let contenido = document.querySelector(".content__element");
   //let lista=document.querySelectorAll(".content__target");
@@ -5,8 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let boton = document.querySelector(".modal__add");
   let texto = document.querySelector(".modal__text");
   let cerraModal = document.querySelector(".modal__close");
-  let imagen = document.querySelector(".modal__image");
+  let imagen = document.querySelector("#url-input");
   let template = document.querySelector("#template").content;
+
   let pagina = document.querySelector(".page");
   let editor = document.querySelector(".description__button");
   let modal = document.querySelector(".modal");
@@ -14,10 +18,23 @@ document.addEventListener("DOMContentLoaded", () => {
   let nombre = document.querySelector(".description__text");
   let profesion = document.querySelector(".description__span");
   let imagenEDitar = document.querySelector(".description__edit");
+
   let nombreEntrada = document.querySelector(".add__text");
-  let profesionEntrada = document.querySelector(".add__profesion");
+
+  let profesionEntrada = document.querySelector("#profesion-input");
   let add = document.querySelector(".add");
   let cerrarModififacion = document.querySelector(".add__close");
+  ///////////////////////////////
+
+  let fondoNegro = document.querySelector(".contentImage");
+
+  let contenidoImage = document.querySelector(".contentImage__image");
+  let textoImage = document.querySelector(".contentImage__text");
+  let equisImage = document.querySelector(".contentImage__close");
+  let imagenP = document.querySelector(".contentImage__target-image");
+
+  console.log(equisImage);
+
   let imagenC;
   let elemento;
 
@@ -58,10 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
     tarjeta.append(eliminar);
     tarjeta
       .querySelector(".content__target-image")
-      .setAttribute("src", "" + initialCards[i].link);
+      .setAttribute("src", initialCards[i].link);
+
     tarjeta
       .querySelector(".content__target-image")
-
       .addEventListener("click", expandir);
     tarjeta
       .querySelector(".content__target-image")
@@ -86,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let bloque = template.querySelector(".content__target").cloneNode(true);
     bloque
       .querySelector(".content__target-image")
-      .setAttribute("src", "" + imagen.value);
+      .setAttribute("src", imagen.value);
     bloque
       .querySelector(".content__target-image")
       .setAttribute("alt", "" + texto.value);
@@ -134,10 +151,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function cerrar() {
-    console.log("hola");
-    imagenC.setAttribute("style", "display:none");
-    elemento.setAttribute("style", "display:none");
+  function cerrarImage() {
+    // fondoNegro = document.querySelector(".contentImage");
+    // contenidoImage = document.querySelector(".contentImage__image");
+    console.log("esto es una practica");
+    fondoNegro.setAttribute("style", "display:none");
+    // contenidoImage.setAttribute("style", "display:none");
   }
 
   function expandir(e) {
@@ -150,42 +169,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let nietos = hijos.children;
 
     let nombrex = nietos[0].textContent;
-
-    console.log(nombrex);
     let src = e.target.src;
 
-    elemento = document.createElement("div");
-    elemento.classList.add("creacion__encima");
+    fondoNegro.setAttribute("style", "display:block");
 
-    let contenedor = document.createElement("div");
-    contenedor.classList.add("creacion__content");
-    elemento.append(contenedor);
+    imagenP.setAttribute("src", src);
 
-    imagenC = document.createElement("img");
-    imagenC.classList.add("creacion__image");
-    imagenC.setAttribute("src", src);
-    imagenC.setAttribute("alt", "" + nombrex);
+    textoImage.textContent = nombrex;
 
-    contenedor.append(imagenC);
-
-    let parrafo = document.createElement("p");
-    parrafo.classList.add("creacion__cerrando");
-    parrafo.textContent = "X";
-    parrafo.addEventListener("click", cerrar);
-    contenedor.append(parrafo);
-
-    let parrafo2 = document.createElement("p");
-    parrafo2.classList.add("creacion__frase");
-    parrafo2.textContent = "" + nombrex;
-    contenedor.append(parrafo2);
-    pagina.append(elemento);
-
-    console.log(parrafo2.textContent);
+    pagina.append(fondoNegro);
   }
 
   function abrir() {
     modal.setAttribute("style", "display:block");
-    console.log(modal);
+    //console.log(modal);
   }
 
   function CerrarModal() {
@@ -216,9 +213,57 @@ document.addEventListener("DOMContentLoaded", () => {
     add.setAttribute("style", "display:none");
   }
 
+  /////////////////////////////////////////////////////////////////////////////////////
+
+  enableValidation({
+    formElement: ".modal__content",
+    InputEntrada: ".modal__text",
+    boton: ".modal__add",
+  });
+
+  // Llama a la función
+  enableValidation({
+    formElement: ".form",
+    InputEntrada: ".add__text",
+    boton: ".add__save",
+  });
+
+  //cerrarAfuera();
+
+  cerrarEscape({
+    bloque: ".modal",
+  });
+
+  cerrarEscape({
+    bloque: ".add",
+  });
+
+  superposicion({
+    contenedor: ".modal",
+    bloque: ".modal__container",
+  });
+
+  superposicion({
+    contenedor: ".add",
+    bloque: ".add__container",
+  });
+
+  superposicion({
+    contenedor: ".contentImage ",
+    bloque: ".contentImage__image ",
+  });
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   editor.addEventListener("click", abrir);
   imagenEDitar.addEventListener("click", modificar);
   boton.addEventListener("click", crear);
   cerraModal.addEventListener("click", CerrarModal);
   cerrarModififacion.addEventListener("click", cerrarModalAdd);
+  equisImage.addEventListener("click", cerrarImage);
+  //nombreEntrada.addEventListener("input", isValid);
+
+  //////////////////////////////////////////////////////////
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
 });

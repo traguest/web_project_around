@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="page/index.css" />
-    <script src="scripts/index.js"></script>
 
     <meta name="author" content="javp" />
     <meta name="keywords" content="html,css,javascript" />
@@ -66,11 +65,32 @@
 
     <div class="modal">
       <div class="modal__container">
-        <form class="modal__content" action=".">
+        <form class="modal__content" action="." novalidate>
           <h3 class="modal__title">Agregar Bloque</h3>
           <div class="modal__close">X</div>
-          <input type="text" class="modal__text" placeholder="nombre" />
-          <input type="text" class="modal__image" placeholder="link" />
+          <input
+            id="text-input"
+            type="text"
+            class="modal__text"
+            placeholder="nombre"
+            required
+            minlength="2"
+            maxlength="40"
+          />
+          <div class="modal__content-text">
+            <span class="modal__text-input-error text-input-error"></span>
+          </div>
+          <input
+            id="url-input"
+            type="url"
+            class="modal__text"
+            placeholder="link"
+            required
+          />
+          <div class="modal__content-text">
+            <span class="modal__text-input-error url-input-error"></span>
+          </div>
+
           <button class="modal__add">guardar</button>
         </form>
       </div>
@@ -78,18 +98,48 @@
 
     <div class="add">
       <div class="add__container">
-        <form class="add" action=".">
+        <form class="form" action="." novalidate>
           <h3 class="add__title">Editar valor</h3>
           <div class="add__close">X</div>
+
           <input
+            id="text-input"
             class="add__text"
             class="texto"
             type="text"
             placeholder="Nombre"
+            required
+            minlength="2"
+            maxlength="40"
           />
-          <input class="add__profesion" type="text" placeholder="Profesion" />
+          <div class="add__content">
+            <span class="add__text-input-error text-input-error"></span>
+          </div>
+
+          <input
+            id="profesion-input"
+            class="add__text"
+            type="text"
+            placeholder="Profesion"
+            required
+            minlength="2"
+            maxlength="200"
+          />
+          <div class="add__content">
+            <span class="add__text-input-error profesion-input-error"></span>
+          </div>
+
           <button class="add__save">guardar</button>
         </form>
+      </div>
+    </div>
+
+    <div class="contentImage">
+      <div class="contentImage__image">
+        <img class="contentImage__target-image" src="" alt="" />
+        <p class="contentImage__text"></p>
+
+        <p class="contentImage__close">X</p>
       </div>
     </div>
 
@@ -121,5 +171,7 @@
         </div>
       </div>
     </template>
+
+    <script src="scripts/index.js" type="module"></script>
   </body>
 </html>

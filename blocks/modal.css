@@ -1,6 +1,8 @@
-.modal > * {
-  margin: 0%;
-  padding: 0%;
+.modal__content-text {
+  display: flex;
+  justify-content: start;
+  width: 330px;
+  min-height: 20px;
 }
 
 .modal {
@@ -10,20 +12,31 @@
   background-color: rgba(0, 0, 0, 0.7);
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
- display:none;
-  
+  display: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.modal__title {
+  margin-bottom: 30px;
 }
 .modal__text {
- 
-    width: 330px;
-border: none;
+  width: 330px;
+  border: none;
 
-border-bottom: 1px solid rgb(127, 124, 124);
+  border-bottom: 1px solid rgb(127, 124, 124);
+  padding: 10px;
 }
-.modal__container> * {
+
+.modal__text:focus {
+  border: 3px solid rgb(52, 164, 255);
+  outline: none;
+}
+
+.modal__container {
   border-radius: 5%;
   width: 430px;
   height: 280px;
@@ -37,15 +50,14 @@ border-bottom: 1px solid rgb(127, 124, 124);
   top: 60px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
-.modal__image{
- 
-   width: 330px;
+.modal__image {
+  width: 330px;
 
-border: none;
-border-bottom: 1px solid rgb(127, 124, 124);
-
+  border: none;
+  border-bottom: 1px solid rgb(127, 124, 124);
 }
 
 .modal__close {
@@ -63,20 +75,23 @@ border-bottom: 1px solid rgb(127, 124, 124);
 .modal__add {
   color: white;
   background-color: black;
-  min-width: 330px;
+  min-width: 350px;
   min-height: 30px;
   cursor: pointer;
+  padding: 12px;
+  margin-top: 20px;
+}
+
+.modal__add:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 @media screen and (min-width: 320px) and (max-width: 800px) {
-  .modal__container > * {
+  .modal__container {
     margin-top: -200px;
     width: 282px;
     height: 322px;
 
-    display: flex;
-
-    align-items: center;
     top: 300px;
     left: 50%;
     transform: translateX(-50%);
@@ -88,8 +103,7 @@ border-bottom: 1px solid rgb(127, 124, 124);
 
   .modal__text {
     max-width: 150px;
-  
-}
+  }
 
   .modal__close {
     font-size: 26px;
@@ -97,9 +111,12 @@ border-bottom: 1px solid rgb(127, 124, 124);
     right: 10px;
   }
 
-  .modal__image{
+  .modal__image {
+    max-width: 150px;
+  }
 
-max-width: 150px;
-
+  .modal__content-text {
+    width: 170px;
+    font-size: 12px;
   }
 }

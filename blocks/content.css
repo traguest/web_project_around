@@ -90,4 +90,5 @@
 
 .content__corazon:hover {
   stroke: gray;
+  transform: scale(1.4);
 }
