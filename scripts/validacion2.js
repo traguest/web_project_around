@@ -56,7 +56,7 @@ const toggleButtonState = (inputList, buttonElement, obj) => {
 };
 
 const setEventListeners = (formElement, obj) => {
-  console.log("Hola desde setEventlisteners");
+  //  console.log("Hola desde setEventlisteners");
   // Encuentra todos los campos dentro del formulario y
   // crea un array a partir de estos, utilizando el método Array.from()
   const inputList = Array.from(formElement.querySelectorAll(obj.InputEntrada));
@@ -79,7 +79,7 @@ const setEventListeners = (formElement, obj) => {
 };
 
 export const enableValidation2 = (obj) => {
-  console.log("hola desde el exterior");
+  //console.log("hola desde el exterior");
   // Encontrará todos los formularios con la clase especificada en el DOM y
   // creará un array, a partir de estos, utilizando el método Array.from()
   const formList = Array.from(document.querySelectorAll(obj.formElement));

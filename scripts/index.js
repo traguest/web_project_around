@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let equisImage = document.querySelector(".contentImage__close");
   let imagenP = document.querySelector(".contentImage__target-image");
 
-  console.log(equisImage);
+  //console.log(equisImage);
 
   let imagenC;
   let elemento;
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function cerrarImage() {
     // fondoNegro = document.querySelector(".contentImage");
     // contenidoImage = document.querySelector(".contentImage__image");
-    console.log("esto es una practica");
+    // console.log("esto es una practica");
     fondoNegro.setAttribute("style", "display:none");
     // contenidoImage.setAttribute("style", "display:none");
   }
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function expandir(e) {
     let abuelo = e.target.parentElement;
     let imagenR = e.target;
-    console.log("Natural:", imagenR.naturalWidth, imagenR.naturalHeight);
+    // console.log("Natural:", imagenR.naturalWidth, imagenR.naturalHeight);
     let padre = abuelo.children;
 
     let hijos = padre[1];

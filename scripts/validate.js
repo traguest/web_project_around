@@ -56,7 +56,7 @@ const toggleButtonState = (inputList, buttonElement, obj) => {
 };
 
 const setEventListeners = (formElement, obj) => {
-  console.log("Hola desde setEventlisteners");
+  //console.log("Hola desde setEventlisteners");
   // Encuentra todos los campos dentro del formulario y
   // crea un array a partir de estos, utilizando el método Array.from()
   const inputList = Array.from(formElement.querySelectorAll(obj.InputEntrada));

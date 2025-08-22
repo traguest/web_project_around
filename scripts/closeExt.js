@@ -7,11 +7,11 @@ export function superposicion(obj) {
     //let color = window.getComputedStyle(elem);
 
     if (z === "0") {
-      console.log(z);
+      //  console.log(z);
       contenedor.addEventListener("click", accion);
       z = "";
     } else {
-      console.log(z);
+      //console.log(z);
       bloque.addEventListener("click", accion2);
 
       z = "";
@@ -23,7 +23,7 @@ export function superposicion(obj) {
 
     contenedor.removeEventListener("click", accion);
 
-    console.log(cont);
+    // console.log(cont);
   }
 
   function accion() {
