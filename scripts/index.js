@@ -1,6 +1,7 @@
 import { enableValidation } from "./validate.js";
 import { cerrarEscape } from "./closeKey.js";
 import { superposicion } from "./closeExt.js";
+import { enableValidation2 } from "./validacion2.js";
 document.addEventListener("DOMContentLoaded", () => {
   let contenido = document.querySelector(".content__element");
   //let lista=document.querySelectorAll(".content__target");
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let cerraModal = document.querySelector(".modal__close");
   let imagen = document.querySelector("#url-input");
   let template = document.querySelector("#template").content;
-
+  let fomrmulario = document.forms.modal.modalInput;
   let pagina = document.querySelector(".page");
   let editor = document.querySelector(".description__button");
   let modal = document.querySelector(".modal");
@@ -22,6 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let nombreEntrada = document.querySelector(".add__text");
 
   let profesionEntrada = document.querySelector("#profesion-input");
+
+  let respuestaentrada = document.querySelector("#text-input").value;
+
   let add = document.querySelector(".add");
   let cerrarModififacion = document.querySelector(".add__close");
   ///////////////////////////////
@@ -129,6 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     imagen.value = "";
     texto.value = "";
+    boton.style.disabled = false;
     modal.setAttribute("style", "display:none");
   }
 
@@ -215,17 +220,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /////////////////////////////////////////////////////////////////////////////////////
 
-  enableValidation({
-    formElement: ".modal__content",
-    InputEntrada: ".modal__text",
-    boton: ".modal__add",
-  });
-
   // Llama a la función
   enableValidation({
     formElement: ".form",
     InputEntrada: ".add__text",
     boton: ".add__save",
+  });
+
+  enableValidation2({
+    formElement: ".modal__content",
+    InputEntrada: ".modal__text",
+    boton: ".modal__add",
   });
 
   //cerrarAfuera();
@@ -255,6 +260,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+  //////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   editor.addEventListener("click", abrir);
   imagenEDitar.addEventListener("click", modificar);
   boton.addEventListener("click", crear);
