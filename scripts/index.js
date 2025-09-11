@@ -33,25 +33,28 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   let corazon = document.querySelector(".content__corazon");
-
   class Card {
-    constructor(name, link) {
-      this._name = name;
-      this._link = link;
+    constructor(data, cardElement) {
+      this._name = data.name;
+      this._link = data.link;
+
+      this._cardElement = cardElement;
     }
 
     _generateTemplate() {
       const getTemplate = document
-        .querySelector(".template")
+        .querySelector(this._cardElement)
         .content.querySelector(".content__target")
         .cloneNode(true);
 
       return getTemplate;
     }
 
+    setEventListenersx() {}
+
     generateCard() {
       this.element = this._generateTemplate();
-      //this._setEventListeners();
+      // this.setEventListenersx();
       this.element
         .querySelector(".content__target-image")
         .setAttribute("src", this._link);
@@ -66,17 +69,18 @@ document.addEventListener("DOMContentLoaded", () => {
         .querySelector(".content__capa")
         .append(this.element.querySelector(".content__corazon"));
 
+      this.setEventListenersx();
       return this.element;
     }
   }
 
   lista.forEach((item) => {
-    const card = new Card(item.name, item.link);
+    const card = new Card(item, ".template");
 
     const agregar = card.generateCard();
 
     document.querySelector(".content__element").append(agregar);
   });
 
-  console.log("Hola mundo");
+  //corazon.addEventListener("click", accion);
 });
