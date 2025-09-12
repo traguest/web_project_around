@@ -3,6 +3,28 @@
   justify-content: center;
 }
 
+.contentImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(122, 57, 57, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+
+  transition: visibility 0s, opacity 0.6s;
+  z-index: 10;
+}
+
+.content__visible {
+  visibility: visible;
+  opacity: 1;
+}
+
 .content__element {
   margin-top: 46px;
   max-width: 890px;
@@ -59,12 +81,20 @@
 }
 
 .content__image-delete {
-  position: absolute;
+  width: 30px;
+  height: 30px;
 
-  right: 15px;
+  position: absolute;
+  right: 12px;
   top: 8px;
   cursor: pointer;
   z-index: 1;
+
+  fill: rgb(138, 21, 233);
+}
+
+.content__image-delete:hover {
+  fill: red;
 }
 
 .content__capa {

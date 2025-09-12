@@ -2,6 +2,9 @@ import { enableValidation } from "./validate.js";
 import { cerrarEscape } from "./closeKey.js";
 import { superposicion } from "./closeExt.js";
 import { enableValidation2 } from "./validacion2.js";
+
+import { Card } from "./Card.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   //console.log(equisImage);
 
@@ -31,71 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
     },
   ];
-
-  class Card {
-    constructor(data, cardElement) {
-      this._name = data.name;
-      this._link = data.link;
-
-      this._cardElement = cardElement;
-    }
-
-    _generateTemplate() {
-      const getTemplate = document
-        .querySelector(this._cardElement)
-        .content.querySelector(".content__target")
-        .cloneNode(true);
-
-      return getTemplate;
-    }
-
-    _cambio(corazon) {
-      if (corazon.getAttribute("fill") === "black") {
-        corazon.setAttribute("fill", "white");
-      } else {
-        corazon.setAttribute("fill", "black");
-      }
-    }
-
-    eliminar() {
-      document.querySelector(".content__target").remove();
-    }
-
-    generateCard() {
-      this.element = this._generateTemplate();
-      // this.setEventListenersx();
-      this.element
-        .querySelector(".content__target-image")
-        .setAttribute("src", this._link);
-
-      this.element.querySelector(".content__text").textContent = this._name;
-
-      this.element
-        .querySelector(".content__capa")
-        .append(this.element.querySelector(".content__text"));
-
-      this.element
-        .querySelector(".content__corazon")
-        .addEventListener("click", (e) => {
-          let corazon = e.target;
-          this._cambio(corazon);
-        });
-
-      this.element
-        .querySelector(".content__image-delete")
-        .addEventListener("click", () => {
-          this.eliminar();
-        });
-
-      this.element
-        .querySelector(".content__capa")
-        .append(this.element.querySelector(".content__corazon"));
-
-      //this.setEventListenersx();
-
-      return this.element;
-    }
-  }
 
   lista.forEach((item) => {
     const card = new Card(item, ".template");
