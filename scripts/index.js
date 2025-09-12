@@ -32,16 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  //let corazon = document.querySelector(".content__corazon");
   class Card {
-    constructor(data, cardElement, corazon) {
+    constructor(data, cardElement) {
       this._name = data.name;
       this._link = data.link;
 
       this._cardElement = cardElement;
-      this._corazon = document.querySelector(corazon);
-
-      console.log(this._corazon);
     }
 
     _generateTemplate() {
@@ -53,35 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
       return getTemplate;
     }
 
-    generadorValores() {
-      let valores = [
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-      ];
-      let acom = "#";
-      let aleatorio = 0;
-
-      for (let i = 0; i < 6; i++) {
-        aleatorio = Math.floor(Math.random() * (valores.length - 0) + 0);
-
-        acom += valores[aleatorio];
+    _cambio(corazon) {
+      if (corazon.getAttribute("fill") === "black") {
+        corazon.setAttribute("fill", "white");
+      } else {
+        corazon.setAttribute("fill", "black");
       }
-
-      return acom;
     }
 
     generateCard() {
@@ -99,11 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       this.element
         .querySelector(".content__corazon")
-        .addEventListener("click", () => {
-          this.element
-            .querySelector(".content__corazon")
-            .setAttribute("fill", "yellow");
-          console.log("Hola mundo");
+        .addEventListener("click", (e) => {
+          let corazon = e.target;
+          this._cambio(corazon);
         });
 
       this.element
@@ -117,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   lista.forEach((item) => {
-    const card = new Card(item, ".template", ".content__corazon");
+    const card = new Card(item, ".template");
 
     const agregar = card.generateCard();
 
