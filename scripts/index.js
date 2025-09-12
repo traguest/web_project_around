@@ -57,6 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    eliminar() {
+      document.querySelector(".content__target").remove();
+    }
+
     generateCard() {
       this.element = this._generateTemplate();
       // this.setEventListenersx();
@@ -75,6 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
         .addEventListener("click", (e) => {
           let corazon = e.target;
           this._cambio(corazon);
+        });
+
+      this.element
+        .querySelector(".content__image-delete")
+        .addEventListener("click", () => {
+          this.eliminar();
         });
 
       this.element
