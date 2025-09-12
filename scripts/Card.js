@@ -1,6 +1,7 @@
 let contenido = document.querySelector(".contentImage");
 let Imagen = document.querySelector(".contentImage__target-image");
-
+let cerrar = document.querySelector(".contentImage__close");
+let texto = document.querySelector(".contentImage__text");
 export class Card {
   constructor(data, cardElement) {
     this._name = data.name;
@@ -29,18 +30,26 @@ export class Card {
   _eliminar(e) {
     let hijo = e.target;
     let padre = hijo.parentElement.parentElement;
-
     //console.log(padre);
     padre.remove();
   }
 
-  _abrir(e) {
-    // Imagen.src = this._link;
+  _cerrar() {
+    contenido.classList.remove("content__visible");
+  }
+
+  _abrir() {
+    Imagen.setAttribute("src", this._link);
+    texto.textContent = this._name;
     contenido.classList.add("content__visible");
-    console.log("hola mundo");
+    cerrar.addEventListener("click", () => {
+      this._cerrar();
+    });
   }
 
   generateCard() {
+    this._cerrar();
+
     this.element = this._generateTemplate();
 
     this.element
@@ -49,8 +58,8 @@ export class Card {
 
     this.element
       .querySelector(".content__target-image")
-      .addEventListener("click", (e) => {
-        this._abrir(e);
+      .addEventListener("click", () => {
+        this._abrir();
       });
 
     this.element.querySelector(".content__text").textContent = this._name;

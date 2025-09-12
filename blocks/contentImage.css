@@ -1,87 +1,72 @@
 .contentImage {
-  position: absolute;
-  inset: 0;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-
-  z-index: 0;
-  color: white;
-  display: none;
-  /*  display: flex;
-  text-align: center;
+  display: flex;
+  align-items: center;
   justify-content: center;
-*/
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+
+  transition: visibility 0s, opacity 0.4s;
+  z-index: 10;
+  color: white;
+}
+
+.content__visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 .contentImage__image {
   position: relative;
-  top: 70px;
-  left: 30%;
-  max-width: 500px;
-  max-height: 100%;
-
-  z-index: 1;
 }
 
 .contentImage__target-image {
-  width: 100%;
-  height: auto;
+  width: 500px;
+  height: 500px;
+
+  z-index: 1;
+
+  position: relative;
 }
 
 .contentImage__close {
-  font-size: 30px;
+  font-size: 40px;
   position: absolute;
-  top: -30px;
+  top: -40px;
   right: -20px;
-
   font-weight: bold;
   cursor: pointer;
+  z-index: 1;
 }
 .contentImage__text {
   position: absolute;
-  top: 370px;
-  left: 1px;
+  bottom: -20px;
+  left: -3px;
   font-size: 17px;
 
   font-size: 20px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 1500px) {
-  .contentImage__image {
-    min-width: 220px;
-    min-height: 299px;
-    flex-shrink: 2;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
+@media screen and (min-width: 320px) and (max-width: 555px) {
   .contentImage__target-image {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    display: flex;
+    width: 300px;
+    height: 300px;
   }
 
   .contentImage__close {
-    font-size: 26px;
-    flex-shrink: 2;
-    top: -25px;
-    right: 2px;
+    left: 300px;
+    top: -30px;
+    font-size: 30px;
   }
-  .contentImage__text {
-    flex-shrink: 2;
-    top: 235px;
-    left: 1px;
-    font-size: 15px;
-  }
-}
 
-@media screen and (min-width: 510px) and (max-width: 1500px) {
   .contentImage__text {
-    flex-shrink: 2;
-    top: 370px;
-    left: 1px;
+    top: 300px;
+    right: 10px;
     font-size: 15px;
   }
 }
