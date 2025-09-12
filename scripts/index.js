@@ -32,13 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  let corazon = document.querySelector(".content__corazon");
+  //let corazon = document.querySelector(".content__corazon");
   class Card {
-    constructor(data, cardElement) {
+    constructor(data, cardElement, corazon) {
       this._name = data.name;
       this._link = data.link;
 
       this._cardElement = cardElement;
+      this._corazon = document.querySelector(corazon);
+
+      console.log(this._corazon);
     }
 
     _generateTemplate() {
@@ -50,7 +53,36 @@ document.addEventListener("DOMContentLoaded", () => {
       return getTemplate;
     }
 
-    setEventListenersx() {}
+    generadorValores() {
+      let valores = [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+      ];
+      let acom = "#";
+      let aleatorio = 0;
+
+      for (let i = 0; i < 6; i++) {
+        aleatorio = Math.floor(Math.random() * (valores.length - 0) + 0);
+
+        acom += valores[aleatorio];
+      }
+
+      return acom;
+    }
 
     generateCard() {
       this.element = this._generateTemplate();
@@ -66,16 +98,26 @@ document.addEventListener("DOMContentLoaded", () => {
         .append(this.element.querySelector(".content__text"));
 
       this.element
+        .querySelector(".content__corazon")
+        .addEventListener("click", () => {
+          this.element
+            .querySelector(".content__corazon")
+            .setAttribute("fill", "yellow");
+          console.log("Hola mundo");
+        });
+
+      this.element
         .querySelector(".content__capa")
         .append(this.element.querySelector(".content__corazon"));
 
-      this.setEventListenersx();
+      //this.setEventListenersx();
+
       return this.element;
     }
   }
 
   lista.forEach((item) => {
-    const card = new Card(item, ".template");
+    const card = new Card(item, ".template", ".content__corazon");
 
     const agregar = card.generateCard();
 
