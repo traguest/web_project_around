@@ -4,7 +4,7 @@ import { superposicion } from "./closeExt.js";
 import { enableValidation2 } from "./validacion2.js";
 
 import { Card } from "./Card.js";
-
+import { FormValidator } from "./FormValidator.js";
 document.addEventListener("DOMContentLoaded", () => {
   //console.log(equisImage);
 
@@ -45,3 +45,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //corazon.addEventListener("click", accion);
 });
+
+const configuracion = {
+  add: ".add",
+  contenedor: ".add__container",
+  form: ".form",
+  h3: ".add__title",
+  cerrar: ".add__close",
+  inputTextId: "#text-input",
+  claseText: ".add__text",
+  ContenidoCentrado: ".add__content",
+  claseEspan: ".add__text-input-error",
+  tipoEspan: "text-input-error",
+  profesionInputId: "#profesion-input",
+  tipoEspanProfesion: "profesion-input-error",
+  botonGuardar: ".add__save",
+};
+
+const v = new FormValidator(configuracion);

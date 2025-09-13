@@ -1,43 +1,30 @@
-
-
-const configuracion={
-
-add:".add",
-contenedor:".add__container",
-form:".form",
-h3:"add__title",
-cerrar:"add__close",
-inputTextId:"#text-input",
-claseText:"add__text",
-ContenidoCentrado:"add__content",
-claseEspan:"add__text-input-error",
-tipoEspan:"text-input-error",
-profesionInputId:"#profesion-input",
-tipoEspanProfesion:"profesion-input-error",   
-botonGuardar:"add__save"          
-}
-
-
-
-
+let editar = document.querySelector(".description__edit");
+let modal = document.querySelector(".add");
 export class FormValidator {
+  constructor(configuracion) {
+    this._configuracion = configuracion;
+    this.eventos();
+  }
 
+  _cambiar(estado) {
+    modal.setAttribute("style", "display:" + estado);
+    console.log(estado);
+  }
 
-constructor(){
+  eventos() {
+    let estado;
+    let boton = document.querySelector(this._configuracion.cerrar);
+    //  console.log(this._configuracion.cerrar);
+    editar.addEventListener("click", () => {
+      this._cambiar((estado = "block"));
+    });
 
+    boton.addEventListener("click", () => {
+      this._cambiar((estado = "none"));
+    });
+  }
 
-
-    }
-
-
-
- _generateTemplate() {
-
-    
-  const getTemplate=  
-
-
-
-}
-
+  mostrar() {
+    console.log(this._configuracion);
+  }
 }
