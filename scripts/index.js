@@ -47,7 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const configuracion = {
-  add: ".add",
+  BotonEntrada: ".description__edit",
+  contenedorPrincipal: ".add",
   contenedor: ".add__container",
   form: ".form",
   h3: ".add__title",
@@ -60,6 +61,8 @@ const configuracion = {
   profesionInputId: "#profesion-input",
   tipoEspanProfesion: "profesion-input-error",
   botonGuardar: ".add__save",
+  nombre: ".description__text",
+  profesion: ".description__span",
 };
 
 const v = new FormValidator(configuracion);

@@ -1,30 +1,52 @@
-let editar = document.querySelector(".description__edit");
-let modal = document.querySelector(".add");
 export class FormValidator {
   constructor(configuracion) {
     this._configuracion = configuracion;
+    this._BotonEntrada = document.querySelector(configuracion.BotonEntrada);
+    this._boton = document.querySelector(this._configuracion.cerrar);
+
     this.eventos();
   }
 
   _cambiar(estado) {
-    modal.setAttribute("style", "display:" + estado);
+    let contenedorPrincipal = document.querySelector(
+      this._configuracion.contenedorPrincipal
+    );
+    contenedorPrincipal.setAttribute("style", "display:" + estado);
     console.log(estado);
   }
 
   eventos() {
     let estado;
-    let boton = document.querySelector(this._configuracion.cerrar);
-    //  console.log(this._configuracion.cerrar);
-    editar.addEventListener("click", () => {
-      this._cambiar((estado = "block"));
+
+    this._BotonEntrada.addEventListener("click", (e) => {
+      estado = "block";
+
+      if (e.target.className === "description__edit") {
+        this.agregar(estado);
+      }
+
+      this._cambiar(estado);
     });
 
-    boton.addEventListener("click", () => {
-      this._cambiar((estado = "none"));
+    this._boton.addEventListener("click", () => {
+      estado = "none";
+      this._cambiar(estado);
     });
   }
 
-  mostrar() {
-    console.log(this._configuracion);
+  agregar(estado) {
+    let nombre = document.querySelector(this._configuracion.nombre);
+    let profesion = document.querySelector(this._configuracion.profesion);
+
+    this.nombreagregar = document.querySelector(
+      this._configuracion.inputTextId
+    );
+    this.profesionagregar = document.querySelector(
+      this._configuracion.profesionInputId
+    );
+    console.log(nombre.innerText);
+    this.nombreagregar.value = nombre.innerText;
+    this.profesionagregar = profesion.innerText;
+    this._cambiar(estado);
   }
 }
