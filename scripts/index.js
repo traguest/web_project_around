@@ -48,11 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const configuracion = {
   BotonEntrada: ".description__edit",
+  cerrar: ".add__close",
   contenedorPrincipal: ".add",
   contenedor: ".add__container",
   form: ".form",
   h3: ".add__title",
-  cerrar: ".add__close",
   inputTextId: "#text-input",
   claseText: ".add__text",
   ContenidoCentrado: ".add__content",
@@ -65,4 +65,11 @@ const configuracion = {
   profesion: ".description__span",
 };
 
+const configuracion2 = {
+  BotonEntrada: ".description__button",
+  cerrar: ".modal__close",
+  contenedorPrincipal: ".modal",
+};
+
 const v = new FormValidator(configuracion);
+const v2 = new FormValidator(configuracion2);

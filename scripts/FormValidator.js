@@ -38,15 +38,14 @@ export class FormValidator {
     let nombre = document.querySelector(this._configuracion.nombre);
     let profesion = document.querySelector(this._configuracion.profesion);
 
-    this.nombreagregar = document.querySelector(
-      this._configuracion.inputTextId
-    );
-    this.profesionagregar = document.querySelector(
+    let nombreagregar = document.querySelector(this._configuracion.claseText);
+    let profesionagregar = document.querySelector(
       this._configuracion.profesionInputId
     );
-    console.log(nombre.innerText);
-    this.nombreagregar.value = nombre.innerText;
-    this.profesionagregar = profesion.innerText;
+
+    nombreagregar.value = nombre.innerText;
+    profesionagregar.value = profesion.innerText;
+
     this._cambiar(estado);
   }
 }
