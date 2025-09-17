@@ -1,9 +1,10 @@
-import { enableValidation } from "./validate.js";
-import { cerrarEscape } from "./closeKey.js";
-import { superposicion } from "./closeExt.js";
-import { enableValidation2 } from "./validacion2.js";
+//import { enableValidation } from "./validate.js";
+//import { cerrarEscape } from "./closeKey.js";
+//import { superposicion } from "./closeExt.js";
+//import { enableValidation2 } from "./validacion2.js";
 
 import { Card } from "./Card.js";
+import { Utils } from "./utils.js";
 import { FormValidator } from "./FormValidator.js";
 document.addEventListener("DOMContentLoaded", () => {
   //console.log(equisImage);
@@ -71,5 +72,8 @@ const configuracion2 = {
   contenedorPrincipal: ".modal",
 };
 
-const v = new FormValidator(configuracion);
-const v2 = new FormValidator(configuracion2);
+const v = new Utils(configuracion);
+const v2 = new Utils(configuracion2);
+
+const formulario1 = document.querySelector("#form1");
+const v3 = new FormValidator(configuracion, formulario1);
