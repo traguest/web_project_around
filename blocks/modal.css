@@ -83,7 +83,11 @@
 }
 
 .modal__add:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(99, 91, 91, 0.7);
+}
+
+.modal__submit_disabled {
+  background-color: rgba(99, 91, 91, 0.7);
 }
 
 @media screen and (min-width: 320px) and (max-width: 800px) {

@@ -1,5 +1,5 @@
 export function cerrarEscape(e) {
-  let bloque = document.querySelector(e.bloque);
+  let bloque = document.querySelector(e);
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {

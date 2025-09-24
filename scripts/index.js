@@ -1,11 +1,8 @@
-//import { enableValidation } from "./validate.js";
-//import { cerrarEscape } from "./closeKey.js";
-//import { superposicion } from "./closeExt.js";
-//import { enableValidation2 } from "./validacion2.js";
-
 import { Card } from "./Card.js";
-import { Utils } from "./utils.js";
+import { Utils } from "./Utils.js";
 import { FormValidator } from "./FormValidator.js";
+import { cerrarEscape } from "./closeKey.js";
+import { superposicion } from "./closeExt.js";
 document.addEventListener("DOMContentLoaded", () => {
   //console.log(equisImage);
 
@@ -70,10 +67,55 @@ const configuracion2 = {
   BotonEntrada: ".description__button",
   cerrar: ".modal__close",
   contenedorPrincipal: ".modal",
+  botonGuardar: ".modal__add",
+  urlInput: "#url-input",
 };
 
 const v = new Utils(configuracion);
 const v2 = new Utils(configuracion2);
 
-const formulario1 = document.querySelector("#form1");
-const v3 = new FormValidator(configuracion, formulario1);
+const configuracionAdd = {
+  inactiveButtonClass: ".add__save",
+  error: "add__submit_disabled",
+  inputSelector: ".add__text",
+};
+
+const configuracionmodal = {
+  inactiveButtonClass: ".modal__add",
+  error: "modal__submit_disabled",
+  inputSelector: ".modal__text",
+};
+
+const forms = Array.from(document.querySelectorAll(".form"));
+const forms2 = Array.from(document.querySelectorAll(".modal__content"));
+
+//console.log(forms);
+
+forms2.forEach((formElement) => {
+  const validator = new FormValidator(configuracionmodal, formElement);
+  validator.enableValidation();
+});
+
+forms.forEach((formElement) => {
+  const validator = new FormValidator(configuracionAdd, formElement);
+  validator.enableValidation();
+});
+
+cerrarEscape(".add");
+
+cerrarEscape(".modal");
+
+const objeto1 = {
+  contenedor: ".add",
+
+  bloque: ".add__container",
+};
+
+const objeto2 = {
+  contenedor: ".modal",
+
+  bloque: ".modal__container",
+};
+
+superposicion(objeto1);
+superposicion(objeto2);

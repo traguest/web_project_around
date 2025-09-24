@@ -34,7 +34,7 @@
   outline: none;
 }
 
-.add__input-error_active {
+.add__text-input-error {
   color: red;
 }
 
@@ -82,22 +82,17 @@
 }
 
 .add__save {
-  color: white;
   background-color: black;
+  color: white;
+
   cursor: pointer;
   min-width: 350px;
   padding: 13px;
   margin-top: 25px;
 }
 
-.add__save:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.add_inactive {
-  cursor: not-allowed;
-  background-color: #ccc;
-  pointer-events: none;
+.add__submit_disabled {
+  background-color: rgb(121, 117, 117);
 }
 
 @media screen and (min-width: 320px) and (max-width: 800px) {
